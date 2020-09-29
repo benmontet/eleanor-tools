@@ -51,9 +51,11 @@ def make_postcards(fns, outdir, width=104, height=148, wstep=None, hstep=None):
     primary_header.add_record("COMMENT   *    eleanor INFO     *")
     primary_header.add_record("COMMENT   ***********************")
     primary_header.add_record(dict(name="AUTHOR", value="Adina D. Feinstein"))
-    primary_header.add_record(dict(name="VERSION", value=eleanor_version))
+    primary_header.add_record(dict(name="PVERSION", value=eleanor_version,
+                                   comment="eleanor version used to create Postcard"))
     primary_header.add_record(
-        dict(name="TVERSION", value=eleanor_tools_version)
+        dict(name="TVERSION", value=eleanor_tools_version,
+             comment="eleanor-tools version used to create postcard")
     )
     primary_header.add_record(
         dict(name="GITHUB", value="https://github.com/afeinstein20/eleanor")
@@ -62,7 +64,7 @@ def make_postcards(fns, outdir, width=104, height=148, wstep=None, hstep=None):
         dict(
             name="CREATED",
             value=strftime("%Y-%m-%d"),
-            comment="eleanor file creation date (YYY-MM-DD)",
+            comment="eleanor file creation date (YYYY-MM-DD)",
         )
     )
 
